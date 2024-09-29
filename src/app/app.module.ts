@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ParkingService } from '../app/core/services/parking.service';
 import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 import {CloudinaryModule} from '@cloudinary/ng';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import {CloudinaryModule} from '@cloudinary/ng';
     MatGridListModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CloudinaryModule
+    CloudinaryModule,
+    NgxDropzoneModule
   ],
   providers: [ParkingService],
   bootstrap: [AppComponent],

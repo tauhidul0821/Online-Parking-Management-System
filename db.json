@@ -3,17 +3,19 @@
   "space": [
     {
       "id": "1",
-      "img": "",
-      "title": "",
-      "spacePrice": 0,
-      "status": "AVAILABLE"
+      "spacePrice": 3,
+      "title": "sdfsdfsdf",
+      "img": "/assets/car3.jpg",
+      "reservedDateTime": "2024-09-29T21:27:44.726Z",
+      "status": "RESERVED"
     },
     {
       "id": "2",
-      "img": "",
-      "title": "",
-      "spacePrice": 0,
-      "status": "AVAILABLE"
+      "spacePrice": 3,
+      "title": "sdfsdfwe",
+      "img": "/assets/car3.jpg",
+      "reservedDateTime": "2024-09-29T20:07:33.899Z",
+      "status": "RESERVED"
     },
     {
       "id": "3",
@@ -32,11 +34,11 @@
     },
     {
       "id": "5",
-      "spacePrice": 10,
-      "title": "",
-      "img": "",
-      "reservedDateTime": "",
-      "status": "AVAILABLE"
+      "spacePrice": 3,
+      "title": "New Car",
+      "img": "http://res.cloudinary.com/ddrvnegkl/image/upload/v1727650979/zknkxurrbbpgjl5yrv2k.jpg",
+      "reservedDateTime": "2024-09-29T23:02:58.562Z",
+      "status": "RESERVED"
     },
     {
       "id": "6",
@@ -47,10 +49,11 @@
     },
     {
       "id": "7",
-      "title": "",
-      "img": "",
-      "reservedDateTime": "",
-      "status": "AVAILABLE"
+      "spacePrice": 3,
+      "title": "sdfsdfsf",
+      "img": "/assets/car3.jpg",
+      "reservedDateTime": "2024-09-29T21:57:36.995Z",
+      "status": "RESERVED"
     },
     {
       "id": "8",

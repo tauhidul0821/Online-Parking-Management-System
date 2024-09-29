@@ -24,4 +24,9 @@ export class ParkingService {
   getSpacePrice(): Observable<number> {
     return this.http.get<number>(this.baseUrl + '/spacePrice');
   }
+
+  uploadImage(data: any): Observable<any>{
+
+    return this.http.post('https://api.cloudinary.com/v1_1/ddrvnegkl/upload', data);
+  }
 }

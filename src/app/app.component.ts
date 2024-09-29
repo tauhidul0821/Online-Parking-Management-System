@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { ParkingService } from './core/services/parking.service';
-import { IVehicleData } from './vehicle.config';
+import { IVehicleData, ESpaceStatus } from './vehicle.config';
 import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 
 @Component({
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   totalSpaces: IVehicleData[];
 
   clickSpace(space: any): void {
-    if (space.title) {
+    if (space.status === ESpaceStatus.RESERVED) {
       const dialogRef = this.dialog.open(VehicleDetailsComponent, {
         width: '550px',
         height: '600px',
@@ -40,8 +40,8 @@ export class AppComponent implements OnInit {
 
   openDialog(space: any): void {
     const dialogRef = this.dialog.open(AddVehicleComponent, {
-      width: '450px',
-      height: '400px',
+      width: '550px',
+      height: '600px',
       data: space,
     });
 

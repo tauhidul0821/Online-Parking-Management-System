@@ -1,7 +1,7 @@
 <div style="margin: 30px;">
   <h2>Add new Vehicle</h2>
 
-  <form class="row" [formGroup]="vehicleForm">
+  <form class="row new-space-reserved" [formGroup]="vehicleForm">
     <mat-form-field class="input-field-style">
       <mat-label>Vehicle Number</mat-label>
       <input type="text" formControlName="vehicleNumber" matInput placeholder="Vehicle Number">
@@ -12,11 +12,26 @@
       <input type="number" formControlName="price" [readonly]="true" matInput [value]="spacePrice">
     </mat-form-field>
 
-    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+    <!-- <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file"> -->
+    <ngx-dropzone (change)="onSelect($event)">
+      <ngx-dropzone-label>Select Vehicle Picture!</ngx-dropzone-label>
+      
+      <ngx-dropzone-image-preview 
+        ngProjectAs="ngx-dropzone-preview"
+        *ngFor="let f of files"
+        [file]="f"
+        [removable]="true"
+        (removed)="onRemove(f)"
+        >
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+    </ngx-dropzone>
+    
+
 
   </form>
 
   <button style="margin: 2px;" mat-raised-button color="accent" (click)="cancel()">Cancel</button>
-  <button style="margin: 2px;" mat-stroked-button color="primary" (click)="addNew()">Add New</button>
+  <button style="margin: 2px;" mat-stroked-button color="primary" (click)="addNew()">Reserved</button>
 </div>
