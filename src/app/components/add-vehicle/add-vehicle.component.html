@@ -1,0 +1,22 @@
+<div style="margin: 30px;">
+  <h2>Add new Vehicle</h2>
+
+  <form class="row" [formGroup]="vehicleForm">
+    <mat-form-field class="input-field-style">
+      <mat-label>Vehicle Number</mat-label>
+      <input type="text" formControlName="vehicleNumber" matInput placeholder="Vehicle Number">
+    </mat-form-field>
+
+    <mat-form-field class="input-field-style">
+      <mat-label>Price</mat-label>
+      <input type="number" formControlName="price" [readonly]="true" matInput [value]="spacePrice">
+    </mat-form-field>
+
+    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+
+  </form>
+
+  <button style="margin: 2px;" mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+  <button style="margin: 2px;" mat-stroked-button color="primary" (click)="addNew()">Add New</button>
+</div>

@@ -1,0 +1,66 @@
+{
+  "spacePrice": 10,
+  "space": [
+    {
+      "id": "",
+      "spacePrice": 10,
+      "title": "",
+      "img": "",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "2",
+      "title": "first2",
+      "img": "/assets/car2.jpg",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "3",
+      "spacePrice": 10,
+      "img": "/assets/car3.jpg",
+      "arrivalDateTime": "2024-09-29T16:23:59.966Z"
+    },
+    {
+      "id": "4",
+      "title": "",
+      "img": ""
+    },
+    {
+      "id": "5",
+      "title": "",
+      "img": "",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "6",
+      "title": "first6",
+      "img": "/assets/car2.jpg",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "7",
+      "title": "first7",
+      "img": "/assets/car3.jpg",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "8",
+      "title": "first8",
+      "img": "/assets/car2.jpg",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "9",
+      "title": "first9",
+      "img": "/assets/car3.jpg",
+      "arrivalDateTime": ""
+    },
+    {
+      "id": "10",
+      "spacePrice": 10,
+      "title": "first2",
+      "img": "/assets/car2.jpg",
+      "arrivalDateTime": "2024-09-29T11:47:19.018Z"
+    }
+  ]
+}
