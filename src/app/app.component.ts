@@ -4,6 +4,7 @@ import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.compon
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { ParkingService } from './core/services/parking.service';
 import { IVehicleData } from './vehicle.config';
+import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { IVehicleData } from './vehicle.config';
 })
 export class AppComponent implements OnInit {
   title = 'space-booking';
+  img!: CloudinaryImage;
 
   constructor(
     public dialog: MatDialog,
@@ -22,10 +24,14 @@ export class AppComponent implements OnInit {
 
   clickSpace(space: any): void {
     if (space.title) {
-      this.dialog.open(VehicleDetailsComponent, {
+      const dialogRef = this.dialog.open(VehicleDetailsComponent, {
         width: '550px',
         height: '600px',
         data: space,
+      });
+      
+      dialogRef.afterClosed().subscribe((result) => {
+        this.getAllParkingSpaces();
       });
       return;
     }
@@ -46,6 +52,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllParkingSpaces();
+  }
+
+  initCloudInstance(): void{
+    // Create a Cloudinary instance and set your cloud name.
+    const cld = new Cloudinary({
+      cloud: {
+        cloudName: 'demo'
+      }
+    });
   }
 
   getAllParkingSpaces(): void {

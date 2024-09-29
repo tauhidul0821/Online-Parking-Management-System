@@ -1,4 +1,11 @@
 <div style="margin: 20px;">
   <h2>Vehicle Number: {{data.title}}</h2>
-  <img *ngIf="data.img" height="500px" width="500px" [src]="data.img" [alt]="data.title">
+  <ng-container *ngIf="data.reservedDateTime">
+    <p>Reserved Time: {{data.reservedDateTime | date: 'dd/MM/yyyy h:mm:ss a' }}</p>
+    <p>Every Hour Cost: <span>{{spacePrice | currency}}</span> <b> Total Hour:</b> <span>{{diffInHours  | number: '1.2-2'}} Minute</span> Total Cost: <span>{{totalCost| currency}}</span></p> 
+  </ng-container>
+  
+  <img *ngIf="data.img" height="400px" width="400px" [src]="data.img" [alt]="data.title">
+
+  <button style="margin: 2px;" mat-stroked-button color="primary" (click)="releaseNow()">Relise Now</button>
 </div>

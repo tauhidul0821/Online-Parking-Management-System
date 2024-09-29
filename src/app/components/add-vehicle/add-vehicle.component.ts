@@ -55,7 +55,7 @@ export class AddVehicleComponent implements OnInit {
         spacePrice: this.spacePrice,
         title: this.vehicleForm?.value?.vehicleNumber,
         img: '/assets/car3.jpg',
-        arrivalDateTime: date,
+        reservedDateTime: date,
         status: 'RESERVED'
       };
 

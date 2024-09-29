@@ -4,5 +4,6 @@
     <img *ngIf="space.img" height="200px" width="200px" [src]="space.img" [alt]="space.title">
 
 
+    <h2 *ngIf="space.status === 'AVAILABLE'">This place is available</h2>
   </mat-grid-tile>
 </mat-grid-list>

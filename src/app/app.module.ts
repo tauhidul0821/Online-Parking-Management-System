@@ -16,6 +16,9 @@ import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.compon
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ParkingService } from '../app/core/services/parking.service';
+import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
+import {CloudinaryModule} from '@cloudinary/ng';
+
 
 @NgModule({
   declarations: [AppComponent, AddVehicleComponent, VehicleDetailsComponent],
@@ -33,6 +36,7 @@ import { ParkingService } from '../app/core/services/parking.service';
     MatGridListModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CloudinaryModule
   ],
   providers: [ParkingService],
   bootstrap: [AppComponent],

@@ -5,10 +5,10 @@ export enum ESpaceStatus {
 }
 
 export interface IVehicleData {
-  arrivalDateTime?: Date;
+  reservedDateTime?: Date;
   id?: string | number;
-  img: string;
-  title: string;
-  spacePrice: number | string,
+  img?: string;
+  title?: string;
+  spacePrice?: number | string,
   status?: 'RESERVED' | 'AVAILABLE' | 'OCCUPIED'
 }

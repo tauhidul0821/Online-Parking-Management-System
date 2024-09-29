@@ -1,37 +1,34 @@
 {
-  "spacePrice": 10,
+  "spacePrice": 3,
   "space": [
     {
       "id": "1",
-      "spacePrice": 10,
-      "title": "fff",
-      "img": "/assets/car3.jpg",
-      "arrivalDateTime": "2024-09-29T17:33:48.258Z",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "2",
-      "spacePrice": 10,
-      "title": "tauhid",
-      "img": "/assets/car3.jpg",
-      "reservedDateTime": "2024-09-29T17:26:28.542Z",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "3",
-      "title": "",
       "spacePrice": 10,
-      "img": "",
-      "reservedDateTime": "",
-      "status": ""
+      "title": "gdfgdfg",
+      "img": "/assets/car3.jpg",
+      "reservedDateTime": "2024-09-29T19:15:52.406Z",
+      "status": "RESERVED"
     },
     {
       "id": "4",
-      "title": "tauhidul 20122",
-      "spacePrice": 10,
-      "img": "/assets/car3.jpg",
-      "status": "RESERVED",
-      "reservedDateTime": "2024-09-29T17:13:16.578Z"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "5",
@@ -39,35 +36,36 @@
       "title": "",
       "img": "",
       "reservedDateTime": "",
-      "status": ""
+      "status": "AVAILABLE"
     },
     {
       "id": "6",
-      "title": "first6",
-      "img": "/assets/car2.jpg",
-      "reservedDateTime": "",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "7",
       "title": "",
       "img": "",
       "reservedDateTime": "",
-      "status": ""
+      "status": "AVAILABLE"
     },
     {
       "id": "8",
-      "title": "first8",
-      "img": "/assets/car2.jpg",
-      "reservedDateTime": "",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "9",
-      "title": "",
-      "img": "",
-      "reservedDateTime": "",
-      "status": ""
+      "spacePrice": 10,
+      "title": "fgdfgdfgdfg",
+      "img": "/assets/car3.jpg",
+      "reservedDateTime": "2024-09-29T19:16:23.304Z",
+      "status": "RESERVED"
     },
     {
       "id": "10",
