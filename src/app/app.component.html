@@ -1,7 +1,8 @@
 <mat-grid-list cols="5" rowHeight="5:4">
   <mat-grid-tile *ngFor="let space of totalSpaces" (click)="clickSpace(space)"
-    [ngStyle]="space.title ? {'background': 'red'} : {'background': 'green'}">
+    [ngStyle]="space.status==='RESERVED' ? {'background': '#ca7462'} : {'background': '#a9c660'}">
     <img *ngIf="space.img" height="200px" width="200px" [src]="space.img" [alt]="space.title">
+
 
   </mat-grid-tile>
 </mat-grid-list>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { ParkingService } from './core/services/parking.service';
@@ -42,7 +41,6 @@ export class AppComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.getAllParkingSpaces();
-      console.log('The dialog was closed');
     });
   }
 
@@ -53,7 +51,6 @@ export class AppComponent implements OnInit {
   getAllParkingSpaces(): void {
     this.parkingService.getAllSpaces().subscribe((spaces: any) => {
       this.totalSpaces = spaces;
-      console.log('find data', spaces);
     });
   }
 }

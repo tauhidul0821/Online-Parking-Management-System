@@ -46,26 +46,27 @@ export class AddVehicleComponent implements OnInit {
   }
 
   addNew(): void {
+
+    console.log(this.vehicleForm.value)
     if (!this.vehicleForm.invalid) {
       const date = new Date();
-      const mapVehicleInfo = {
+      const mapVehicleInfo: IVehicleData = {
         id: this.data?.id,
-        spacePrice: 10,
-        title: this.vehicleForm?.vehicleNumber,
+        spacePrice: this.spacePrice,
+        title: this.vehicleForm?.value?.vehicleNumber,
         img: '/assets/car3.jpg',
         arrivalDateTime: date,
+        status: 'RESERVED'
       };
 
-      console.log(mapVehicleInfo);
+      console.log(mapVehicleInfo)
 
       this.vehicleForm.patchValue({ price: this.spacePrice });
 
-      this.parkingsService.updateSpaces(3, mapVehicleInfo).subscribe((res) => {
-        console.log('spaces updated');
+      this.parkingsService.updateSpaces(mapVehicleInfo).subscribe((res) => {
         this.dialogRef.close();
       });
     } else {
-      console.log(this.vehicleForm);
       markFormGroupTouch(this.vehicleForm);
     }
   }
@@ -77,9 +78,7 @@ export class AddVehicleComponent implements OnInit {
       const reader = new FileReader();
 
       reader.onload = (e: any) => {
-        console.log(e.target);
         this.srcResult = e.target.result;
-        console.log(this.srcResult);
       };
 
       reader.readAsArrayBuffer(inputNode.files[0]);

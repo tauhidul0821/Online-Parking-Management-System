@@ -17,8 +17,8 @@ export class ParkingService {
     return this.http.post<any>(this.baseUrl + '/space', data);
   }
 
-  updateSpaces(id: number, data: any): Observable<any> {
-    return this.http.put<any>(this.baseUrl + '/space/' + id, data);
+  updateSpaces(data: IVehicleData): Observable<any> {
+    return this.http.put<any>(this.baseUrl + '/space/' + data?.id, data);
   }
 
   getSpacePrice(): Observable<number> {
