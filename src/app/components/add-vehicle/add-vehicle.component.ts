@@ -14,7 +14,7 @@ import { LocalStoreService } from 'src/app/core/services/local-storage.service';
 export class AddVehicleComponent implements OnInit {
   srcResult: any;
   vehicleForm: any;
-  spacePrice: number;
+  spacePrice = 3;
   files: File[] = [];
   imageData: any;
 
@@ -28,7 +28,8 @@ export class AddVehicleComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.getPlacePrice();
+    // this.getPlacePrice();
+    this.getPlacePriceFromLocalStorage();
   }
 
   initForm(): void {
@@ -39,10 +40,17 @@ export class AddVehicleComponent implements OnInit {
     });
   }
 
+  // using JSON server
   getPlacePrice(): void {
     this.parkingsService.getSpacePrice().subscribe((spacePrice: number) => {
       this.spacePrice = spacePrice;
     });
+  }
+
+  // LocalStorage
+  getPlacePriceFromLocalStorage(): void {
+    this.spacePrice = this.localStoreService.getSpacePriceFormLocalStorage();
+    console.log('spacePrice :- ', this.spacePrice);
   }
 
   cancel(): void {

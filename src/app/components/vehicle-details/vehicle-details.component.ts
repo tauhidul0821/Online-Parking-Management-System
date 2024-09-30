@@ -25,14 +25,18 @@ export class VehicleDetailsComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.getPlacePrice();
+    // this.getPlacePrice();
+    this.getPlacePriceFromLocalStorage();
   }
-
   
   getPlacePrice(): void {
     this.parkingService.getSpacePrice().subscribe((spacePrice: number) => {
       this.spacePrice = spacePrice;
     });
+  }
+
+  getPlacePriceFromLocalStorage(): void {
+    this.spacePrice = this.localStoreService.getSpacePriceFormLocalStorage();
   }
 
   get diffInHours(): number {

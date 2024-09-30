@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     private parkingService: ParkingService,
     private localStoreService: LocalStoreService) {
       localStoreService.setToLocalStorage();
+      localStoreService.setSpacePrice();
   }
 
   totalSpaces: IVehicleData[];

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently -k \"npm run server\" \"npm run client\"",
-    "build": "ng build --prod",
+    "build": "ng build",
     "server": "npx json-server db.json",
     "watch": "ng build --watch --configuration development",
     "client": "ng serve -o",
