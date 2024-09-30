@@ -19,6 +19,7 @@ import { ParkingService } from '../app/core/services/parking.service';
 import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 import {CloudinaryModule} from '@cloudinary/ng';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { LocalStoreService } from "./core/services/local-storage.service";
 
 
 
@@ -41,7 +42,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     CloudinaryModule,
     NgxDropzoneModule
   ],
-  providers: [ParkingService],
+  providers: [ParkingService, LocalStoreService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

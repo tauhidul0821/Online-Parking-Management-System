@@ -11,11 +11,10 @@
     },
     {
       "id": "2",
-      "spacePrice": 3,
-      "title": "sdfsdfwe",
-      "img": "/assets/car3.jpg",
-      "reservedDateTime": "2024-09-29T20:07:33.899Z",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     },
     {
       "id": "3",
@@ -72,11 +71,10 @@
     },
     {
       "id": "10",
-      "spacePrice": 10,
-      "title": "first2",
-      "img": "/assets/car2.jpg",
-      "reservedDateTime": "2024-09-29T11:47:19.018Z",
-      "status": "RESERVED"
+      "img": "",
+      "title": "",
+      "spacePrice": 0,
+      "status": "AVAILABLE"
     }
   ]
 }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { ParkingService } from './core/services/parking.service';
+import { LocalStoreService } from './core/services/local-storage.service';
 import { IVehicleData, ESpaceStatus } from './vehicle.config';
 import {Cloudinary, CloudinaryImage} from '@cloudinary/url-gen';
 
@@ -17,8 +18,10 @@ export class AppComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private parkingService: ParkingService
-  ) {}
+    private parkingService: ParkingService,
+    private localStoreService: LocalStoreService) {
+      localStoreService.setToLocalStorage();
+  }
 
   totalSpaces: IVehicleData[];
 
@@ -46,7 +49,7 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.getAllParkingSpaces();
+     this.getAllParkingSpaces();
     });
   }
 
@@ -54,18 +57,16 @@ export class AppComponent implements OnInit {
     this.getAllParkingSpaces();
   }
 
-  initCloudInstance(): void{
-    // Create a Cloudinary instance and set your cloud name.
-    const cld = new Cloudinary({
-      cloud: {
-        cloudName: 'demo'
-      }
-    });
-  }
-
+  // data get from json server
   getAllParkingSpaces(): void {
     this.parkingService.getAllSpaces().subscribe((spaces: any) => {
       this.totalSpaces = spaces;
     });
+  }
+
+  // data get from localstorage
+  getAllParkingSpaces1(): void {
+    this.totalSpaces = this.localStoreService.getSpaceData();
+    //console.log('HERE :- ', this.totalSpaces);
   }
 }
