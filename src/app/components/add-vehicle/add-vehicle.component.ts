@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ParkingService } from 'src/app/core/services/parking.service';
 import { markFormGroupTouch } from 'src/app/core/utils';
 import { IVehicleData } from '../../vehicle.config';
+import { LocalStoreService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -21,6 +22,7 @@ export class AddVehicleComponent implements OnInit {
     private formBuilder: FormBuilder,
     private parkingsService: ParkingService,
     public dialogRef: MatDialogRef<any>,
+    private localStoreService: LocalStoreService,
     @Inject(MAT_DIALOG_DATA) public data: IVehicleData
   ) {}
 
@@ -51,7 +53,7 @@ export class AddVehicleComponent implements OnInit {
     if (!this.vehicleForm.invalid) {
       const date = new Date();
       
-      this.onUpload();
+      //this.onUpload();
 
       
     if(this.files[0]){
@@ -77,9 +79,16 @@ export class AddVehicleComponent implements OnInit {
 
       console.log(mapVehicleInfo)
 
-      this.parkingsService.updateSpaces(mapVehicleInfo).subscribe((res22) => {
+      // using json server
+      // this.parkingsService.updateSpaces(mapVehicleInfo).subscribe((res22) => {
+      //   this.dialogRef.close();
+      // });
+
+      // using localstorage
+      const updatedValue = this.localStoreService.updateSpace(mapVehicleInfo);
+      if(updatedValue){
         this.dialogRef.close();
-      });
+      }
     })
 
 
@@ -97,64 +106,5 @@ export class AddVehicleComponent implements OnInit {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
-
-  onUpload(): void{
-    if(this.files[0]){
-      console.log('Please select image')
-    }
-
-    const file_data = this.files[0];
-    const data = new FormData();
-    data.append('file', file_data);
-    data.append('upload_preset', 'parking-management-system');
-    data.append('cloud_name', 'ddrvnegkl')
-
-
-    this.parkingsService.uploadImage(data).subscribe(res=>{
-      console.log(res);
-      this.imageData = res;
-
-    })
-  }
-
-
-
-
-
-
-  // onFileSelected2() {
-  //   const inputNode: any = document.querySelector('#file');
-
-  //   if (typeof FileReader !== 'undefined') {
-  //     const reader = new FileReader();
-
-  //     reader.onload = (e: any) => {
-  //       this.srcResult = e.target.result;
-  //     };
-
-  //     reader.readAsArrayBuffer(inputNode.files[0]);
-  //   }
-  // }
-
-  // onFileSelected22(){
-  //   if(!this.files[0]){
-  //     console.log('No file selected');
-  //   }
-
-  //   const file_data = this.files[0];
-
-  //   const data = new FormData();
-  //   data.append('file', file_data);
-  //   data.append('upload_preset', 'new-insta');
-  //   data.append('cloud_name', 'ddrvnegkl');
-
-  //   this.parkingsService.uploadImage(data).subscribe(res=>{
-  //     if(res){
-  //       console.log(res);
-  //     }
-  //   })
-  // }
-
-
 
 }

@@ -49,12 +49,15 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-     this.getAllParkingSpaces();
+     // this.getAllParkingSpaces();
+     
+      this.getDataFromLocalStorage();
     });
   }
 
   ngOnInit(): void {
-    this.getAllParkingSpaces();
+    // this.getAllParkingSpaces();
+    this.getDataFromLocalStorage();
   }
 
   // data get from json server
@@ -65,7 +68,7 @@ export class AppComponent implements OnInit {
   }
 
   // data get from localstorage
-  getAllParkingSpaces1(): void {
+  getDataFromLocalStorage(): void {
     this.totalSpaces = this.localStoreService.getSpaceData();
     //console.log('HERE :- ', this.totalSpaces);
   }

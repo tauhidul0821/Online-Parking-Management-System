@@ -5,6 +5,7 @@ import {
 } from '@angular/material/dialog';
 import { IVehicleData } from '../../vehicle.config';
 import { ParkingService } from 'src/app/core/services/parking.service';
+import { LocalStoreService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -18,7 +19,8 @@ export class VehicleDetailsComponent implements OnInit{
   constructor(
     public dialogRef: MatDialogRef<any>,
     private parkingService: ParkingService,
-    @Inject(MAT_DIALOG_DATA) public data: IVehicleData
+    @Inject(MAT_DIALOG_DATA) public data: IVehicleData,
+    private localStoreService: LocalStoreService
   ) {}
 
 
@@ -53,10 +55,17 @@ export class VehicleDetailsComponent implements OnInit{
       spacePrice: 0,
       status: 'AVAILABLE' 
     }
-    this.parkingService.updateSpaces(modifyData).subscribe(res=> {
+
+    // using json server.
+    // this.parkingService.updateSpaces(modifyData).subscribe(res=> {
+    //   this.dialogRef.close();
+    // })
+
+    // using localstorage
+    const updatedValue = this.localStoreService.updateSpace(modifyData);
+    if(updatedValue){
       this.dialogRef.close();
-      console.log()
-    })
+    }
 
 
   }

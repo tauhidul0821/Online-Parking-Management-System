@@ -98,6 +98,45 @@ export class LocalStoreService {
         localStorage.setItem('space', JSON.stringify(data));
     }
 
+    updateSpace(data: IVehicleData){
+        const dataString = localStorage.getItem('space');
+        if (dataString) {
+          const parkingSpaces = JSON.parse(dataString);
+          const spaceToUpdate = parkingSpaces.find((space: IVehicleData) => space.id === data.id);
+          if (spaceToUpdate) {
+            spaceToUpdate.reservedDateTime = data.reservedDateTime;
+            spaceToUpdate.id = data.id;
+            spaceToUpdate.img = data.img;
+            spaceToUpdate.title = data.title;
+            spaceToUpdate.status = data.status;
+          }
+
+          console.log('Here....',parkingSpaces);
+          
+          localStorage.setItem('space', JSON.stringify(parkingSpaces));
+          return parkingSpaces;
+        }
+    }
+
+    reliseSpace(data: IVehicleData){
+        const dataString = localStorage.getItem('space');
+        if (dataString) {
+          const parkingSpaces = JSON.parse(dataString);
+          const spaceToUpdate = parkingSpaces.find((space: IVehicleData) => space.id === data.id);
+          if (spaceToUpdate) {
+            spaceToUpdate.reservedDateTime =  '';
+            spaceToUpdate.id = data.id;
+            spaceToUpdate.img = '';
+            spaceToUpdate.title = '';
+            spaceToUpdate.status = 'AVAILABLE';
+          }
+          console.log(parkingSpaces);
+          
+          localStorage.setItem('space', JSON.stringify(parkingSpaces));
+          return parkingSpaces;
+        }
+    }
+
     setSpacePrice(){
         const data = this.getSpacePrice()
         localStorage.setItem('spacePrice', JSON.stringify(data));
